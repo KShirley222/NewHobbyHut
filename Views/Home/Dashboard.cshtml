@@ -1,0 +1,29 @@
+@model List<Hobby>
+
+<div class="row">
+    <h1 class="col-sm-8">Hobbies</h1>
+    <a class= "col-sm-2" href="logout">logout</a>
+
+</div>
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Enthusiasts</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Hobby h in Model)
+            {
+            <tr>
+                <td><a href="/@h.HobbyId">@h.HobbyName</a></td>
+                <td>@h.HobbyUser.Count</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <a href="new" class="btn btn-primary">Create new Hobby</a>
+</div>

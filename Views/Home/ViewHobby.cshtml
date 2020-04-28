@@ -1,0 +1,34 @@
+@model Hobby
+
+<div class="row">
+    <h1 class="col-sm-5">@Model.HobbyName</h1>
+    <a class="col-sm-2" href="/dashboard">Back</a>
+</div>
+<div class="row">
+    <h3>Description:</h3>
+    <p>@Model.Description</p>
+</div>
+<div class="row">
+    <div class="col-sm-5">
+        <h6>@Model.HobbyName Enthusiasts</h6>
+        @foreach(var u in ViewBag.Users)
+        {
+            <p>@u.UserA.FirstName</p>
+        }
+    </div>
+    <div class="col-sm-5">
+        <h6>Become an Enthusiast:</h6>
+         @if(Model.HobbyUser.All( u => u.UserId == ViewBag.CurUserId))
+        {
+            <p>Already a member</p>
+        }
+        else if(Model.HobbyUser.All( u => u.UserId != ViewBag.CurUserId))
+        {
+            <a class = "btn btn-danger" href="/join/@Model.HobbyId">Join Now</a>
+        }
+    </div>
+    <div class="col-sm-2">
+         <a href="/edit/@Model.HobbyId" class="btn btn-primary">Edit</a>
+    </div>
+</div>
+

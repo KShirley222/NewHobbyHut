@@ -1,0 +1,21 @@
+@model Hobby
+
+<div class="row">
+    <h1>Create a Hobby</h1>
+    <a href="/dashboard">Back</a>
+</div>
+<div class="row">
+    <form action="/create" method="post">
+        <div class="form-group">
+            <label asp-for="HobbyName"></label>
+            <input asp-for="HobbyName" class="form-control">
+            <span asp-validation-for="HobbyName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control">
+            <span asp-validation-for="Description"></span>
+        </div>
+        <input type="submit" class="btn btn-danger">
+    </form>
+</div>
